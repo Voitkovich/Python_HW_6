@@ -41,39 +41,27 @@ print(stroka_a)
 # Вывод:
 # {'Vlad': 102.5, 'Den': 300.0, 'Alex': 600.0}
 
-# def generator_dict(names, salarys,bonuses):
-#     result {names: salary*float(bonus[:-1]/100)
-#               names,salarys,bonuses for 
-#               name,salary,bonus
-#               in zip(names, salarys, bonuses)}
-#         
+def generator_dict(names, salarys,bonuses):
+    return {name: salary * float(bonus[:-1])/100
+            for name, salary, bonus  
+            in zip(names, salarys, bonuses)}
+       
 
-# def generator_dict(name, slary, bonus):
-#     print {names: salarys * (1 + float(bonuses.strip('%')) / 100) 
-#             for names, salarys, bonuses in 
-#             zip(name, slary, bonus)}
-#     
+name_list = ['Vlad', 'Den', 'Alex']
+salary_list = [1000, 2000, 3000]
+extra_list = ['10.25%', '15%', '20%']
 
-
-# name_list = ['Vlad', 'Den', 'Alex']
-# salary_list = [1000, 2000, 3000]
-# extra_list = ['10.25%', '15%', '20%']
-
-# # result = {i:ord(i) for i in string}
-# print(generator_dict(name_list, salary_list, extra_list))
-
-
+print(generator_dict(name_list, salary_list, extra_list))
 
 
 
 # Создайте функцию генератор чисел Фибоначчи
 
 
+def fibonacci(n):
+    a, b = 0, 1
+    for __ in range(n):
+        yield a
+        a, b = b, a + b
 
-# def fibonacci(n):
-#     a, b = 0, 1
-#     for __ in range(n):
-#         yield a
-#         a, b = b, a + b
-
-# print(list(fibonacci(10)))
+print(list(fibonacci(10)))
